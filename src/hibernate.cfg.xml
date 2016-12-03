@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jchat_sdb?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">jchat_sdb_user</property>
+    <property name="hibernate.connection.password">********</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping resource="server/db/mapping/UserAccount.hbm.xml"/>
+    <mapping resource="server/db/mapping/UserSession.hbm.xml"/>
+    <mapping resource="server/db/mapping/AddContactRequest.hbm.xml"/>
+    <mapping resource="server/db/mapping/UserContact.hbm.xml"/>
+    <mapping resource="server/db/mapping/Conversation.hbm.xml"/>
+    <mapping resource="server/db/mapping/ConversationParticipant.hbm.xml"/>
+    <mapping resource="server/db/mapping/ChatMessage.hbm.xml"/>
+    <mapping resource="server/db/mapping/ChatMessageDelivery.hbm.xml"/>
+    <mapping resource="server/db/mapping/FileTransfer.hbm.xml"/>
+    <mapping resource="server/db/mapping/Notification.hbm.xml"/>
+    <mapping resource="server/db/mapping/UserIcon.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

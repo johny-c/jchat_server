@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+    <class name="UserAccount" table="USER_ACCOUNTS">
+        <id column="UAC_ID" name="id" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="UAC_USERNAME" name="username" type="string"/>
+        <property column="UAC_EMAIL" name="email" type="string"/>
+        <property column="UAC_REG_DATE" name="regDate" type="timestamp"/>
+        <property column="UAC_BIRTH_DATE" name="birthDate" type="timestamp"/>
+        <property column="UAC_PASSWORD" name="password" type="string"/>
+
+        <property column="UAC_STATUS" name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">common.db.entity.UserAccount$Status</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+
+        <set inverse="true" name="conversations" table="CONVERSATION_PARTICIPANTS">
+            <key column="CP_USER_ID"/>
+            <many-to-many class="Conversation" column="CP_CONV_ID"/>
+        </set>
+        <set inverse="true" name="contacts" table="USER_CONTACTS">
+            <key column="UC_USER_ID"/>
+            <many-to-many class="UserAccount" column="UC_CONTACT_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

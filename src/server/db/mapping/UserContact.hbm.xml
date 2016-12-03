@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+    <class name="UserContact" table="USER_CONTACTS">
+        <id column="UC_ID" name="id" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="UC_USER_ID" name="userId" type="integer"/>
+        <property column="UC_CONTACT_ID" name="contactId" type="integer"/>
+        <property column="UC_STATUS" name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">common.db.entity.UserContact$Status</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,8 @@
+1. Add Libraries
+	MySQL Driver
+	Hibernate
+	Hibernate - JPA
+	(By Hibernate 4, QueryTranslationFactory is NOT needed)
+
+hbm2ddl.auto = update
+open-close a Hibernate session - DB gets created 

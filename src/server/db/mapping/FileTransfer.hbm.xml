@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+    <class name="FileTransfer" table="FILE_TRANSFERS">
+        <id column="F_ID" name="Id" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="F_SOURCE_ID" name="sourceUserId" type="integer"/>
+        <property column="F_TARGET_ID" name="targetUserId" type="integer"/>
+        <property column="F_FILE_SIZE" name="fileSize" type="long"/>
+        <property column="F_FILES_COUNT" name="filesCount" type="integer"/>
+        <property column="F_TIME_SENT" name="timeSent" type="timestamp"/>
+        <property column="F_TIME_BY_SERVER" name="timeByServer" type="timestamp"/>
+        <property column="F_TIME_NOTIFIED" name="timeNotified" type="timestamp"/>
+        <property column="F_TIME_DOWNLOADED" name="timeDownloaded" type="timestamp"/>
+        <property column="F_CONV_ID" name="conversationId" type="integer"/>
+        <property column="F_STATUS" name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">common.db.entity.FileTransfer$Status</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

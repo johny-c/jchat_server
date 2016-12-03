@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="server.db.entity">
+    <class name="ChatMessageDelivery" table="CM_DELIVERIES">
+        <id column="CMD_ID" name="id" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="CMD_TARGET_ID" name="targetUserId" type="integer"/>       
+        <property column="CMD_TIME_DELIVERED" name="timeDelivered" type="timestamp"/>
+        <property column="CMD_TIME_REPORTED" name="timeReported" type="timestamp"/>
+        <property column="CMD_TIME_FAILED" name="timeFailed" type="timestamp"/>
+        <property column="CMD_CM_ID" name="chatMessageId" type="integer"/>
+        <property column="CMD_STATUS" name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">server.db.entity.ChatMessageDelivery$Status</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+    
+    
+    </class>
+</hibernate-mapping>

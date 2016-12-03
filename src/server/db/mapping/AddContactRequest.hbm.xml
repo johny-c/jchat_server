@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+    <class name="AddContactRequest" table="ADD_CONTACT_REQUESTS">
+        <id column="ACR_SGEN_ID" name="serverGenId" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="ACR_CGEN_ID" name="clientGenId" type="integer"/>
+        <property column="ACR_BODY" name="body" type="string"/>
+        <property column="ACR_SOURCE_ID" name="questerUserId" type="integer"/>
+        <property column="ACR_TARGET_ID" name="recipientUserId" type="integer"/>
+        <property column="ACR_TIME_SENT" name="timeSent" type="timestamp"/>
+        <property column="ACR_TIME_BY_SERVER" name="timeByServer" type="timestamp"/>
+        <property column="ACR_TIME_DELIVERED" name="timeDelivered" type="timestamp"/>
+        <property column="ACR_TIME_REPLIED" name="timeReplied" type="timestamp"/>
+        <property column="ACR_REPLY" name="reply" type="boolean"/>
+        <property column="ACR_STATUS" name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">common.db.entity.AddContactRequest$Status</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+    <class name="Conversation" table="CONVERSATIONS">
+        <id column="C_SGEN_ID" name="serverGenId" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="C_CGEN_ID" name="clientGenId" type="integer"/>
+        <property column="C_STARTER_USER_ID" name="starterUserId" type="integer"/>
+        <property column="C_START_TIME" name="startTime" type="timestamp"/>
+        <property column="C_END_TIME" name="endTime" type="timestamp"/>
+        <property column="C_STATUS" name="status">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">common.db.entity.Conversation$Status</param>
+                <param name="type">12</param>
+                <param name="useNamed">true</param>
+            </type>
+        </property>
+        
+        <set inverse="true" name="participants" table="CONVERSATION_PARTICIPANTS">
+            <key column="CP_CONV_ID"/>
+            <many-to-many class="UserAccount" column="CP_USER_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

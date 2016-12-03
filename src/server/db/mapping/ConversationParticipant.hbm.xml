@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+    <class name="ConversationParticipant" table="CONVERSATION_PARTICIPANTS">
+        <id column="CP_ID" name="id" type="integer">
+            <generator class="increment"/>
+        </id>
+        <property column="CP_USER_ID" name="participantId" type="integer"/>
+        <property column="CP_CONV_ID" name="conversationId" type="integer"/>
+    </class>
+</hibernate-mapping>

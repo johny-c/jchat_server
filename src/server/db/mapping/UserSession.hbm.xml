@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="common.db.entity">
+  <class name="common.db.entity.UserSession" table="USER_SESSIONS">
+    <id column="US_ID" name="id" type="integer">
+      <generator class="increment"/>
+    </id>
+    <property column="US_USER_ID" name="userId" type="integer"/>
+    <property column="US_TOKEN" name="token" type="long"/>
+    <property column="US_START_TIME" name="start" type="timestamp"/>
+    <property column="US_END_TIME" name="end" type="timestamp"/>
+    <property column="US_VALID" name="valid" type="boolean"/>
+    <property column="US_LAST_ID" name="lastSessionId" type="integer"/>
+  </class>
+</hibernate-mapping>
